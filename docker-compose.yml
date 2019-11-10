@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  sharp:
+    image: node-lambda:sharp-layer
+    build:
+      context: .
+      args:
+        - AWS_REGION=${AWS_REGION}
+        - LAYER_NAME=${LAYER_NAME}
+        - ZIP_FILE_NAME=${ZIP_FILE_NAME}
+    environment:
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - LAYER_NAME=${LAYER_NAME}
+      - ZIP_FILE_NAME=${ZIP_FILE_NAME}

@@ -1,0 +1,11 @@
+{
+  "name": "sharp-lambda-layer",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Grant Jordan <gjordan@piedmontplastics.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.430.0",
+    "sharp": "^0.22.1"
+  }
+}
