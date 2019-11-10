@@ -1,6 +1,8 @@
 # sharp-lambda-layer
 This docker container utilizes [lambci/lambda:build-nodejs10.x](https://hub.docker.com/r/lambci/lambda/tags)
-as a base to build [libvips](https://github.com/libvips/libvips) with PDF support.
+as a base to build [libvips](https://github.com/libvips/libvips) and install 
+[sharp](https://github.com/lovell/sharp) with PDF support. We can then upload 
+the resulting zip as a Lambda layer.
 
 ## Usage
 1. Clone the repository and enter the directory. 
@@ -11,6 +13,8 @@ as a base to build [libvips](https://github.com/libvips/libvips) with PDF suppor
    * AWS_SECRET_ACCESS_KEY
    * LAYER_NAME
    * ZIP_FILE_NAME
+   
 3. `docker-compose build sharp`
+
 4. `docker-compose run sharp`
 
