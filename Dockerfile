@@ -2,7 +2,6 @@ FROM lambci/lambda:build-nodejs10.x
 
 ARG AWS_REGION
 ARG LAYER_NAME
-ARG ZIP_FILE_NAME
 ARG LD_LIBRARY_PATH=/var/task/lib
 ARG PKG_CONFIG_PATH=/var/task/lib/pkgconfig
 ENV LD_LIBRARY_PATH=${LD_LIBRARY_PATH} \
@@ -140,9 +139,9 @@ RUN cd nodejs \
   && rm package.json \
   && cd ../ \
   && ls -a /var/task/lib \
-  && zip -9qyr ${ZIP_FILE_NAME} nodejs lib
+  && zip -9qyr layer.zip nodejs lib
 
-CMD aws --region ${AWS_REGION} lambda publish-layer-version --layer-name ${LAYER_NAME} --zip-file fileb://${ZIP_FILE_NAME}
+CMD aws --region ${AWS_REGION} lambda publish-layer-version --layer-name ${LAYER_NAME} --zip-file fileb://layer.zip
 
 
 
